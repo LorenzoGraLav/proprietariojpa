@@ -49,6 +49,11 @@ public class AutomobileDAOImpl implements AutomobileDAO {
 		
 	}
 	
+	public List<Automobile> erroreConProprietarioMinorenne() {
+		return entityManager.createQuery("from Automobile p join where a.proprietario.eta<18", Automobile.class)
+				.getResultList();
+	}
+	
 	
 
 }

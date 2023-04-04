@@ -17,6 +17,8 @@ public interface AutomobileService {
 
 	public void rimuovi(Long idAutomobileInstance) throws Exception;
 	
+	public void trovaErroreProprietarioMinorenne();
+	
 
 	//per injection
 	public void setAutomobileDAO(AutomobileDAO automobileDAO);

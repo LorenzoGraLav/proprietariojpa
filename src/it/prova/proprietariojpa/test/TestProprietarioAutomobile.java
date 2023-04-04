@@ -26,11 +26,14 @@ public class TestProprietarioAutomobile {
 //			testInserisciProprietario(proprietarioService);
 //			System.out.println(
 //					"In tabella Proprietario ci sono " + proprietarioService.listAllProprietari().size() + " elementi.");
-
-			testInserisciAutomobile(proprietarioService, automobileService);
-			System.out.println(
-			"In tabella Proprietario ci sono " + proprietarioService.listAllProprietari().size() + " elementi.");
-
+//
+//			testInserisciAutomobile(proprietarioService, automobileService);
+//			System.out.println(
+//			"In tabella Proprietario ci sono " + proprietarioService.listAllProprietari().size() + " elementi.");
+//			
+			testUpdateProprietario(proprietarioService);
+			
+			testFindErroriAutomobile(automobileService);
 
 			
 		
@@ -91,5 +94,28 @@ public class TestProprietarioAutomobile {
 
 		System.out.println(".......testInserisciAutomobile fine: PASSED.............");
 	}
+	
+	private static void testUpdateProprietario(ProprietarioService proprietarioService) throws Exception {
+		System.out.println(".........inizioTestUpdateProprietario......");
+
+		Proprietario test = new Proprietario();
+		test.setNome("GIo");
+		proprietarioService.aggiorna(test);
+		
+		if(test.getNome()==null)
+			throw new Exception();
+		
+		
+		System.out.println(".........fine TestUpdateProprietario.......");
+	}
+	
+	
+		private static void testFindErroriAutomobile(AutomobileService automobileService) throws Exception {
+			System.out.println("....inizioTestFindErroriAutomobile......");
+
+			automobileService.trovaErroreProprietarioMinorenne();
+			
+			System.out.println(".......fineTestFindErroriAutomobile");
+		}
 
 }
